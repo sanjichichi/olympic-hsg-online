@@ -224,54 +224,62 @@ else{
 }
 
 async function guiKetQua(){
-console.log("Đang gửi điểm");
-try{
 
-    await fetch(
-    APP_SCRIPT_URL,
-    {
+    console.log("Đang gửi điểm");
 
-        method:"POST",
+    try{
 
-        body:JSON.stringify({
+        let res = await fetch(
+        APP_SCRIPT_URL,
+        {
+            method:"POST",
 
-            hoten:
-            localStorage.getItem(
-            "tenThiSinh"
-            ),
+            body:JSON.stringify({
 
-            lop:
-            localStorage.getItem(
-            "lopThiSinh"
-            ),
+                hoten:
+                localStorage.getItem("tenThiSinh"),
 
-            ngaysinh:
-            localStorage.getItem(
-            "ngaySinh"
-            ),
+                lop:
+                localStorage.getItem("lopThiSinh"),
 
-            kythi:
-            localStorage.getItem(
-            "kythi"
-            ),
+                ngaysinh:
+                localStorage.getItem("ngaySinh"),
 
-            diem:diem,
+                kythi:
+                localStorage.getItem("kythi"),
 
-            tongcau:tong,
+                diem:diem,
 
-            tyle:tyLe
+                tongcau:tong,
 
-        })
+                tyle:tyLe
 
-    });
+            })
+        });
 
-}
+        console.log(
+            "Status:",
+            res.status
+        );
 
-catch(error){
+        let text =
+        await res.text();
 
-    console.log(error);
+        console.log(
+            "Phản hồi:",
+            text
+        );
 
-}
+    }
+
+    catch(error){
+
+        console.log(
+            "Lỗi gửi:",
+            error
+        );
+
+    }
 
 }
 
