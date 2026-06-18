@@ -109,7 +109,7 @@ localStorage.getItem(
 document.getElementById("kyThi")
 .innerHTML =
 localStorage.getItem(
-"kythi"
+"kyThi"
 );
 
 let diem =
@@ -255,7 +255,7 @@ async function guiKetQua(){
 
     formData.append(
         "entry.2016044064",
-        localStorage.getItem("kythi")
+        localStorage.getItem("kyThi")
     );
 
     formData.append(
@@ -282,7 +282,16 @@ async function guiKetQua(){
         "entry.1734543875",
         localStorage.getItem("soLanRoiTab")
     );
-
+console.log("Mã HS:", localStorage.getItem("maThiSinh"));
+console.log("Họ tên:", localStorage.getItem("tenThiSinh"));
+console.log("Lớp:", localStorage.getItem("lopThiSinh"));
+console.log("Ngày sinh:", localStorage.getItem("ngaySinh"));
+console.log("Kỳ thi:", localStorage.getItem("kythi"));
+console.log("Điểm:", diem);
+console.log("Tổng:", tong);
+console.log("Tỷ lệ:", tyLe);
+console.log("Thời gian:", localStorage.getItem("thoiGianHoanThanh"));
+console.log("Rời tab:", localStorage.getItem("soLanRoiTab"));
     fetch(
         "https://docs.google.com/forms/d/e/1FAIpQLSdyjJ_dxE6UO8IFhOml8BNwcOYCyblAFaHQpxJajOMr9c4L1w/formResponse",
         {
