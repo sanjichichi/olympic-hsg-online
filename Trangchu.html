@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Học sinh Giỏi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="anhnen/banner.png" alt="Banner CLB" class="banner-image">
+</header>
+    
+<nav class="menu">
+    <a href="index.html">Trang chủ</a>
+    <a href="hoclieu.html">Kho học liệu</a>
+    <a href="xephang.html">Bảng xếp hạng</a>
+    <a href="chatbot.html">Chatbot AI</a>
+    <a href="login.html" class="login-btn">Đăng nhập</a>
+</nav>
+
+<section class="hero">
+    <div class="overlay">
+        <h2>OLYMPIC HỌC SINH KHÁ GIỎI THCS</h2>
+        Kỳ thi đang tham gia:
+
+    <div class="kythi-box">
+
+    <h2 id="tenKyThi"></h2>
+
+    <p id="thongTinKyThi"></p>
+
+    </div>
+        <p>"Sân chơi trí tuệ dành cho học sinh"</p>
+
+        <h2>ĐĂNG NHẬP ĐỂ BẮT ĐẦU NGAY</h2>
+</div>
+</section>
+<section class="rule-section">
+
+    <h2>📜 THỂ LỆ KỲ THI</h2>
+
+    <div class="rule-box">
+
+        <ul>
+
+            <li>Làm bài trực tuyến trên hệ thống Olympic HSG.</li>
+
+            <li>Mỗi học sinh chỉ sử dụng 01 tài khoản dự thi.</li>
+
+            <li>Không sử dụng tài liệu trong quá trình làm bài.</li>
+
+            <li>Hết thời gian hệ thống tự động nộp bài.</li>
+
+            <li>Kết quả được công bố sau khi kết thúc kỳ thi.</li>
+
+        </ul>
+
+    </div>
+
+</section>
+<section class="exam-detail-section">
+
+    <h2>ℹ️ THÔNG TIN KỲ THI</h2>
+
+    <div class="exam-detail-box">
+
+        <p><strong>Môn thi:</strong> <span id="monThi"></span></p>
+
+        <p><strong>Khối lớp:</strong> 9</p>
+
+        <p><strong>Số câu hỏi:</strong> <span id="soCauChiTiet"></span></p>
+
+        <p><strong>Thời gian làm bài:</strong> <span id="thoiGianChiTiet"></span></p>
+
+        <p><strong>Hình thức:</strong> Trắc nghiệm trực tuyến</p>
+
+        <p><strong>Ngày tổ chức:</strong> <span id="ngayThiChiTiet"></span></p>
+
+    </div>
+
+</section>
+<section class="exam-info">
+
+    <h2>ℹ️ THÔNG TIN KỲ THI</h2>
+
+    <div class="news-box">
+
+        <p>
+            Môn thi:
+            <span id="monThi"></span>
+        </p>
+
+        <p>
+            Số câu hỏi:
+            <span id="soCauChiTiet"></span>
+        </p>
+
+        <p>
+            Thời gian:
+            <span id="thoiGianChiTiet"></span>
+        </p>
+
+    </div>
+
+</section>
+<section class="countdown-section">
+
+    <h2>⏳ THỜI GIAN CÒN LẠI</h2>
+
+    <div class="countdown-box">
+
+        <span id="demNguoc"></span>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <div class="card">
+        <h3>📚 Kho học liệu</h3>
+        <p>Tài liệu ôn tập các môn học</p>
+    </div>
+
+    <div class="card">
+        <h3>🏆 Bảng xếp hạng</h3>
+        <p>Theo dõi kết quả cuộc thi</p>
+    </div>
+
+    <div class="card">
+        <h3>🤖 Chatbot AI</h3>
+        <p>Hỗ trợ học tập thông minh</p>
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+<script>
+
+let kyThi =
+localStorage.getItem("kythi");
+
+document.getElementById(
+    "tenKyThi"
+).innerHTML = kyThi;
+
+let soCau = "";
+let thoiGian = "";
+let ngayThi = "";
+
+if(kyThi === "Olympic Toán 2026"){
+
+    soCau = "📋 20 câu";
+    thoiGian = "⏱ 30 phút";
+    ngayThi = "📅 20/06/2026";
+document.getElementById("monThi")
+.innerHTML = "Toán";
+
+document.getElementById("soCauChiTiet")
+.innerHTML = "20 câu";
+
+document.getElementById("thoiGianChiTiet")
+.innerHTML = "30 phút";
+
+document.getElementById("ngayThiChiTiet")
+.innerHTML = "20/06/2026";
+}
+
+if(kyThi === "Olympic Ngữ văn 2026"){
+
+    soCau = "📋 20 câu";
+    thoiGian = "⏱ 30 phút";
+    ngayThi = "📅 21/06/2026";
+document.getElementById("monThi")
+.innerHTML = "Ngữ văn";
+
+document.getElementById("soCauChiTiet")
+.innerHTML = "20 câu";
+
+document.getElementById("thoiGianChiTiet")
+.innerHTML = "30 phút";
+
+document.getElementById("ngayThiChiTiet")
+.innerHTML = "21/06/2026";
+}
+
+if(kyThi === "Olympic Tiếng Anh 2026"){
+
+    soCau = "📋 20 câu";
+    thoiGian = "⏱ 30 phút";
+    ngayThi = "📅 22/06/2026";
+document.getElementById("monThi")
+.innerHTML = "Tiếng Anh";
+
+document.getElementById("soCauChiTiet")
+.innerHTML = "20 câu";
+
+document.getElementById("thoiGianChiTiet")
+.innerHTML = "30 phút";
+
+document.getElementById("ngayThiChiTiet")
+.innerHTML = "22/06/2026";
+}
+
+
+let ngayThiDemNguoc =
+new Date("2026-10-15 08:00:00");
+
+function capNhatDemNguoc(){
+
+    let hienTai =
+    new Date();
+
+    let khoangCach =
+    ngayThiDemNguoc - hienTai;
+
+    let ngay =
+    Math.floor(
+        khoangCach /
+        (1000*60*60*24)
+    );
+
+    let gio =
+    Math.floor(
+        (khoangCach %
+        (1000*60*60*24))
+        /(1000*60*60)
+    );
+
+    let phut =
+    Math.floor(
+        (khoangCach %
+        (1000*60*60))
+        /(1000*60)
+    );
+
+    document.getElementById(
+        "demNguoc"
+    ).innerHTML =
+
+    ngay + " ngày " +
+    gio + " giờ " +
+    phut + " phút";
+
+}
+
+capNhatDemNguoc();
+
+setInterval(
+    capNhatDemNguoc,
+    60000
+);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Học sinh Giỏi</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <img src="anhnen/banner.png"
+         alt="Banner CLB"
+         class="banner-image">
+</header>
+<nav class="menu">
+
+    <a href="index.html">Trang chủ</a>
+
+    <a href="hoclieu.html">Kho học liệu</a>
+
+    <a href="xephang.html">Bảng xếp hạng</a>
+
+    <a href="chatbot.html">Chatbot AI</a>
+
+    <a href="login.html"
+       class="login-btn">
+
+       Đăng nhập
+
+    </a>
+
+</nav>
+
+<section class="welcome-box">
+
+    <h1>CHÀO MỪNG ĐẾN VỚI</h1>
+
+    <h2>CLB HỌC SINH KHÁ GIỎI</h2>
+
+    <p>Trường THCS Hoàng Ngân</p>
+
+    <select id="kythi">
+
+        <option>
+            Chọn kỳ thi
+        </option>
+
+        <option>
+            Olympic Toán 2026
+        </option>
+
+        <option>
+            Olympic Ngữ văn 2026
+        </option>
+
+        <option>
+            Olympic Tiếng Anh 2026
+        </option>
+
+    </select>
+    <br>
+        <button class="enter-btn"
+        onclick="vaoHeThong()">
+
+    VÀO HỆ THỐNG
+
+</button>
+
+    <section class="stats-section">
+    <div class="stat-card">
+
+        <h3>350</h3>
+
+        <p>Học sinh tham gia</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>25</h3>
+
+        <p>Giải thưởng</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>12</h3>
+
+        <p>Giáo viên phụ trách</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <h3>5</h3>
+
+        <p>Kỳ thi Olympic</p>
+
+    </div>
+</section>
+
+</section>
+<section class="news-section">
+
+    <h2>📢 THÔNG BÁO MỚI NHẤT</h2>
+
+    <div class="news-box">
+
+        <div class="news-item">
+            <span class="date">10/10/2026</span>
+            <p>Khai mạc Olympic Học sinh Giỏi năm học 2026 - 2027.</p>
+        </div>
+
+        <div class="news-item">
+            <span class="date">15/10/2026</span>
+            <p>Tổ chức thi Olympic Toán và Tiếng Anh.</p>
+        </div>
+
+        <div class="news-item">
+            <span class="date">20/10/2026</span>
+            <p>Công bố kết quả và trao giải.</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="schedule-section">
+
+    <h2>📅 LỊCH THI SẮP DIỄN RA</h2>
+
+    <div class="schedule-grid">
+
+        <div class="schedule-card">
+
+            <h3>15/10/2026</h3>
+
+            <p>Olympic Toán 6</p>
+
+            <span>08:00 - 08:30</span>
+
+        </div>
+
+        <div class="schedule-card">
+
+            <h3>16/10/2026</h3>
+
+            <p>Olympic Ngữ văn 6</p>
+
+            <span>08:00 - 08:30</span>
+
+        </div>
+
+        <div class="schedule-card">
+
+            <h3>17/10/2026</h3>
+
+            <p>Olympic Tiếng Anh 6</p>
+
+            <span>08:00 - 08:30</span>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="achievement-section">
+
+    <h2>🏅 BẢNG VÀNG THÀNH TÍCH</h2>
+
+    <div class="achievement-box">
+
+        <h3>Năm học 2025 - 2026</h3>
+
+        <div class="achievement-grid">
+
+            <div class="achievement-card">
+
+                <h1>5</h1>
+
+                <p>🥇 Giải Nhất</p>
+
+            </div>
+
+            <div class="achievement-card">
+
+                <h1>6</h1>
+
+                <p>🥈 Giải Nhì</p>
+
+            </div>
+
+            <div class="achievement-card">
+
+                <h1>9</h1>
+
+                <p>🥉 Giải Ba</p>
+
+            </div>
+
+        </div>
+
+        <h4>Tổng cộng: Hơn 20 giải cấp xã cấp tỉnh</h4>
+
+    </div>
+
+</section>
+<section class="students-section">
+
+    <h2>🏆 GƯƠNG HỌC SINH TIÊU BIỂU</h2>
+
+    <div class="students-grid">
+
+        <div class="student-card">
+
+            <img src="anhnen/hs1.jpg" alt="Học sinh">
+
+            <h3>Nguyễn Văn A</h3>
+
+            <p>Lớp 9A</p>
+
+            <p>Giải Nhất Olympic Toán</p>
+
+        </div>
+
+        <div class="student-card">
+
+            <img src="anhnen/hs2.jpg" alt="Học sinh">
+
+            <h3>Trần Thị B</h3>
+
+            <p>Lớp 9B</p>
+
+            <p>Giải Nhì Olympic Tiếng Anh</p>
+
+        </div>
+
+        <div class="student-card">
+
+            <img src="anhnen/hs3.jpg" alt="Học sinh">
+
+            <h3>Lê Văn C</h3>
+
+            <p>Lớp 8A</p>
+
+            <p>Giải Ba Olympic KHTN</p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="teachers-section">
+
+    <h2>👨‍🏫 ĐỘI NGŨ GIÁO VIÊN PHỤ TRÁCH</h2>
+
+    <div class="teachers-grid">
+
+        <div class="teacher-card">
+
+            <img src="anhnen/gv1.jpg" alt="Giáo viên">
+
+            <h3>Thầy Nguyễn Văn A</h3>
+
+            <p>Chủ nhiệm CLB HSG</p>
+
+            <p>Môn Toán</p>
+
+        </div>
+
+        <div class="teacher-card">
+
+            <img src="anhnen/gv2.jpg" alt="Giáo viên">
+
+            <h3>Cô Trần Thị B</h3>
+
+            <p>Phụ trách Olympic Tiếng Anh</p>
+
+            <p>Môn Tiếng Anh</p>
+
+        </div>
+
+        <div class="teacher-card">
+
+            <img src="anhnen/gv3.jpg" alt="Giáo viên">
+
+            <h3>Thầy Lê Văn C</h3>
+
+            <p>Phụ trách Olympic KHTN</p>
+
+            <p>Môn KHTN</p>
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+
+function vaoHeThong(){
+
+    let kyThi =
+    document.getElementById("kythi").value;
+
+    if(kyThi === "Chọn kỳ thi"){
+
+        alert(
+        "Vui lòng chọn kỳ thi!"
+        );
+
+        return;
+    }
+
+    localStorage.setItem(
+        "kythi",
+        kyThi
+    );
+
+    window.location.href =
+    "trangchu.html";
+}
+
+</script>
+</body>
+</html>
