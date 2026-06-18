@@ -37,7 +37,7 @@ else if(
 
 else if(
     kyThi ===
-    "Olympic Olympic 2026"
+    "Olympic 2026"
 ){
 
     cauHoi =
