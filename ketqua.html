@@ -224,62 +224,75 @@ else{
 }
 
 async function guiKetQua(){
+    console.log(
+    "Mã HS:",
+    localStorage.getItem("maThiSinh")
+);
 
-    console.log("Đang gửi điểm");
+    let formData = new FormData();
 
-    try{
+    formData.append(
+    "entry.692679506",
+    localStorage.getItem(
+        "maThiSinh"
+    )
+    );
 
-        let res = await fetch(
-        APP_SCRIPT_URL,
+    formData.append(
+        "entry.805102074",
+        localStorage.getItem("tenThiSinh")
+    );
+
+    formData.append(
+        "entry.423243862",
+        localStorage.getItem("lopThiSinh")
+    );
+
+    formData.append(
+        "entry.866051924",
+        localStorage.getItem("ngaySinh")
+    );
+
+    formData.append(
+        "entry.2016044064",
+        localStorage.getItem("kythi")
+    );
+
+    formData.append(
+        "entry.1986781729",
+        diem
+    );
+
+    formData.append(
+        "entry.1287135276",
+        tong
+    );
+
+    formData.append(
+        "entry.1019226016",
+        tyLe
+    );
+
+    formData.append(
+        "entry.1223259505",
+        localStorage.getItem("thoiGianHoanThanh")
+    );
+
+    formData.append(
+        "entry.1734543875",
+        localStorage.getItem("soLanRoiTab")
+    );
+
+    fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSdyjJ_dxE6UO8IFhOml8BNwcOYCyblAFaHQpxJajOMr9c4L1w/formResponse",
         {
             method:"POST",
+            mode:"no-cors",
+            body:formData
+        }
+    );
 
-            body:JSON.stringify({
-
-                hoten:
-                localStorage.getItem("tenThiSinh"),
-
-                lop:
-                localStorage.getItem("lopThiSinh"),
-
-                ngaysinh:
-                localStorage.getItem("ngaySinh"),
-
-                kythi:
-                localStorage.getItem("kythi"),
-
-                diem:diem,
-
-                tongcau:tong,
-
-                tyle:tyLe
-
-            })
-        });
-
-        console.log(
-            "Status:",
-            res.status
-        );
-
-        let text =
-        await res.text();
-
-        console.log(
-            "Phản hồi:",
-            text
-        );
-
-    }
-
-    catch(error){
-
-        console.log(
-            "Lỗi gửi:",
-            error
-        );
-
-    }
+    console.log("Đã gửi kết quả lên Google Form");
 
 }
 
