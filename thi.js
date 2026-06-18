@@ -3,7 +3,7 @@ let cauHoi = [];
 
 let kyThi =
 localStorage.getItem(
-    "kythi"
+    "kyThi"
 );
 if(
     kyThi ===
@@ -263,7 +263,15 @@ localStorage.setItem(
     "soCauSai",
     cauHoi.length - diem
 );
+localStorage.setItem(
+    "kyThi",
+    kyThi
+);
 
+localStorage.setItem(
+    "soLanRoiTab",
+    soLanRoiTab
+);
 window.location.href =
 "ketqua.html";
 
