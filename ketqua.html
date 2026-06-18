@@ -248,11 +248,15 @@ async function guiKetQua(){
         localStorage.getItem("lopThiSinh")
     );
     
-
     formData.append(
-   "entry.2016044064",
-   localStorage.getItem("kyThi") || "Olympic Toán 2026"
-);
+    "entry.866051924",
+    localStorage.getItem("ngaySinh")
+    );
+ 
+    formData.append(
+        "entry.2016044064",
+        localStorage.getItem("kyThi")
+    );
 
     formData.append(
         "entry.1986781729",
@@ -273,7 +277,10 @@ async function guiKetQua(){
         "entry.1223259505",
         localStorage.getItem("thoiGianHoanThanh")
     );
-
+formData.append(
+    "entry.1734543875",
+    localStorage.getItem("soLanRoiTab") || 0
+);
 console.log("Mã HS:", localStorage.getItem("maThiSinh"));
 console.log("Họ tên:", localStorage.getItem("tenThiSinh"));
 console.log("Lớp:", localStorage.getItem("lopThiSinh"));
