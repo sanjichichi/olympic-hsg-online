@@ -247,11 +247,7 @@ async function guiKetQua(){
         "entry.423243862",
         localStorage.getItem("lopThiSinh")
     );
-
-    formData.append(
-        "entry.866051924",
-        localStorage.getItem("ngaySinh")
-    );
+    
 
     formData.append(
         "entry.2016044064",
@@ -278,15 +274,11 @@ async function guiKetQua(){
         localStorage.getItem("thoiGianHoanThanh")
     );
 
-    formData.append(
-        "entry.1734543875",
-        localStorage.getItem("soLanRoiTab")
-    );
 console.log("Mã HS:", localStorage.getItem("maThiSinh"));
 console.log("Họ tên:", localStorage.getItem("tenThiSinh"));
 console.log("Lớp:", localStorage.getItem("lopThiSinh"));
 console.log("Ngày sinh:", localStorage.getItem("ngaySinh"));
-console.log("Kỳ thi:", localStorage.getItem("kythi"));
+console.log("Kỳ thi:", localStorage.getItem("kyThi"));
 console.log("Điểm:", diem);
 console.log("Tổng:", tong);
 console.log("Tỷ lệ:", tyLe);
