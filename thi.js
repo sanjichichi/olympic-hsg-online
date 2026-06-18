@@ -236,6 +236,23 @@ function nopBaiChinhThuc(){
     "diemThi",
     diem
 );
+let daDung =
+1800 - time;
+
+let phut =
+Math.floor(daDung / 60);
+
+let giay =
+daDung % 60;
+
+let tg =
+phut + ":" +
+String(giay).padStart(2,"0");
+
+localStorage.setItem(
+    "thoiGianHoanThanh",
+    tg
+);
 
 localStorage.setItem(
     "tongSoCau",
