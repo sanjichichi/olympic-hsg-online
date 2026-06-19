@@ -42,7 +42,7 @@
 
     <p>Trường THCS Hoàng Ngân</p>
 
-    <select id="kythi">
+    <select id="kyThi">
 
         <option>
             Chọn kỳ thi
@@ -320,7 +320,7 @@
 function vaoHeThong(){
 
     let kyThi =
-    document.getElementById("kythi").value;
+    document.getElementById("kyThi").value;
 
     if(kyThi === "Chọn kỳ thi"){
 
@@ -332,7 +332,7 @@ function vaoHeThong(){
     }
 
     localStorage.setItem(
-        "kythi",
+        "kyThi",
         kyThi
     );
 
