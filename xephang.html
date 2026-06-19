@@ -1,178 +1,224 @@
-const CSV_URLS = {
-"Olympic Toán 2026":
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vTpyBmphKKF3lC2YXtIAU7GZO0R7te1Orvoi8KqmHx-PbMKfl2r8iNwz5Z5PA2iUr5ol9A1-AraIMvi/pub?output=csv",
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BẢNG XẾP HẠNG</title>
+<style>
 
-"Olympic Ngữ văn 2026":
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vTQi1mhGw-K9xsKeYgqpe-n3XvALt-PcPb-oOkVxHJ2CLhyfy9QlzkgWnNK24zjQCWmO5q_YuMy5Sga/pub?output=csv",
+*{
 
-"Olympic Tiếng Anh 2026":
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vQtvs9nZ-1ab-DR-rekNM37FXv65Xz8va5RX-98kdy6kbCRrIZIaeO5GgPDZDZdklho2Wk2OuJx-yzZ/pub?output=csv",
+    margin:0;
 
-"Olympic 2026":
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vT1XU2cW4LBuNHihn58r7svCjjtN06q_1e6BndfbPH6yja2nHhadihWkZIBzr7CSnWO5YLeGxMneJJK/pub?output=csv"
+    padding:0;
 
-};
-
-async function docCSV(url){
-
-const response = await fetch(url);
-const text = await response.text();
-
-const rows = text.trim().split("\n");
-
-return rows.slice(1).map(row => {
-
-    const cols = row.split(",");
-
-    return {
-
-        timestamp: cols[0] || "",
-        maHS: cols[1] || "",
-        hoTen: cols[2] || "",
-        lop: cols[3] || "",
-        kyThi: cols[4] || "",
-        diem: Number(cols[5] || 0),
-        dung: Number(cols[6] || 0),
-        sai: Number(cols[7] || 0),
-        thoiGian: cols[8] || "",
-        roiTab: Number(cols[9] || 0),
-        ngayThi: cols[10] || ""
-
-    };
-
-});
+    box-sizing:border-box;
 
 }
 
-async function taiDuLieu(){
+body{
 
-let tatCa = [];
+    font-family:Arial,sans-serif;
 
-for(const url of Object.values(CSV_URLS)){
+    background:#f5f7fa;
 
-    const data = await docCSV(url);
-
-    tatCa = tatCa.concat(data);
+    padding:20px;
 
 }
 
-return tatCa;
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
 
 }
 
-function layKetQuaCaoNhat(data){
+h1{
 
-const ketQua = {};
+    text-align:center;
 
-data.forEach(hs => {
+    color:#003366;
 
-    const key =
-    hs.maHS + "_" + hs.kyThi;
-
-    if(!ketQua[key]){
-
-        ketQua[key] = hs;
-
-    }
-    else{
-
-        if(hs.diem >
-           ketQua[key].diem){
-
-            ketQua[key] = hs;
-
-        }
-
-    }
-
-});
-
-return Object.values(ketQua);
+    margin-bottom:20px;
 
 }
 
-function sapXep(data){
+.topbar{
 
-return data.sort((a,b)=>{
+    display:flex;
 
-    if(b.diem !== a.diem){
+    justify-content:space-between;
 
-        return b.diem - a.diem;
+    align-items:center;
 
-    }
+    flex-wrap:wrap;
 
-    if(a.roiTab !== b.roiTab){
-
-        return a.roiTab - b.roiTab;
-
-    }
-
-    return 0;
-
-});
+    margin-bottom:20px;
 
 }
 
-function hienThiBang(data){
+select{
 
-```
-const tbody =
-document.getElementById("rankingBody");
+    padding:10px;
 
-tbody.innerHTML = "";
+    border-radius:8px;
 
-data.forEach((hs,index)=>{
-
-    tbody.innerHTML += `
-    <tr>
-        <td>${index+1}</td>
-        <td>${hs.maHS}</td>
-        <td>${hs.hoTen}</td>
-        <td>${hs.lop}</td>
-        <td>${hs.kyThi}</td>
-        <td>${hs.diem}</td>
-        <td>${hs.roiTab}</td>
-    </tr>
-    `;
-
-});
+    font-size:16px;
 
 }
 
-async function khoiTao(){
+#tongThiSinh{
 
-let data =
-await taiDuLieu();
+    font-weight:bold;
 
-data =
-layKetQuaCaoNhat(data);
-
-const boLoc =
-document.getElementById("filterExam");
-
-boLoc.addEventListener("change",()=>{
-
-    let ds = [...data];
-
-    if(boLoc.value !== "Tất cả"){
-
-        ds =
-        ds.filter(
-        x=>x.kyThi === boLoc.value
-        );
-
-    }
-
-    ds = sapXep(ds);
-
-    hienThiBang(ds);
-
-});
-
-data = sapXep(data);
-
-hienThiBang(data);
+    color:#003366;
 
 }
 
-khoiTao();
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+
+}
+
+thead{
+
+    background:#003366;
+
+    color:white;
+
+}
+
+th,
+
+td{
+
+    padding:12px;
+
+    border:1px solid #ddd;
+
+    text-align:center;
+
+}
+
+tr:nth-child(even){
+
+    background:#f8f8f8;
+
+}
+
+tr:hover{
+
+    background:#eaf3ff;
+
+}
+
+.hang1{
+
+    background:#fff3cd !important;
+
+    font-weight:bold;
+
+}
+
+.hang2{
+
+    background:#e9ecef !important;
+
+    font-weight:bold;
+
+}
+
+.hang3{
+
+    background:#fce5cd !important;
+
+    font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏆 BẢNG XẾP HẠNG CLB HỌC SINH KHÁ GIỎI</h1>
+
+<div class="topbar">
+
+<div>
+
+<label>Kỳ thi: </label>
+
+<select id="filterExam">
+
+<option>Tất cả</option>
+
+<option>Olympic Toán 2026</option>
+
+<option>Olympic Ngữ văn 2026</option>
+
+<option>Olympic Tiếng Anh 2026</option>
+
+<option>Olympic 2026</option>
+
+</select>
+
+</div>
+
+<div id="tongThiSinh">
+
+Tổng số thí sinh: 0
+
+</div>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Hạng</th>
+
+<th>Mã HS</th>
+
+<th>Họ tên</th>
+
+<th>Lớp</th>
+
+<th>Kỳ thi</th>
+
+<th>Điểm</th>
+
+<th>Rời tab</th>
+
+<th>Thời gian</th>
+
+</tr>
+
+</thead>
+
+<tbody id="rankingBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="xephang.js"></script>
+
+</body>
+</html>

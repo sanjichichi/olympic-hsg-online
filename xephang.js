@@ -91,25 +91,59 @@ return Object.values(ketQua);
 
 }
 
+function parseThoiGian(tg){
+
+    if(!tg) return 999999;
+
+    const parts = tg.split(":");
+
+    if(parts.length === 3){
+
+        const gio = Number(parts[0]);
+        const phut = Number(parts[1]);
+        const giay = Number(parts[2]);
+
+        return gio * 3600 +
+               phut * 60 +
+               giay;
+
+    }
+
+    return 999999;
+
+}
+
 function sapXep(data){
 
-return data.sort((a,b)=>{
+    return data.sort((a,b)=>{
 
-    if(b.diem !== a.diem){
+        // Ưu tiên điểm
 
-        return b.diem - a.diem;
+        if(b.diem !== a.diem){
 
-    }
+            return b.diem - a.diem;
 
-    if(a.roiTab !== b.roiTab){
+        }
 
-        return a.roiTab - b.roiTab;
+        // Ưu tiên ít rời tab hơn
 
-    }
+        if(a.roiTab !== b.roiTab){
 
-    return 0;
+            return a.roiTab - b.roiTab;
 
-});
+        }
+
+        // Ưu tiên hoàn thành nhanh hơn
+
+        const tgA =
+        parseThoiGian(a.thoiGian);
+
+        const tgB =
+        parseThoiGian(b.thoiGian);
+
+        return tgA - tgB;
+
+    });
 
 }
 
@@ -119,7 +153,7 @@ const tbody =
 document.getElementById("rankingBody");
 
 document.getElementById("tongThiSinh")
-.innerText = data.length;
+.innerText = "Tổng số thí sinh: " + data.length;
 
 tbody.innerHTML = "";
 
@@ -146,6 +180,7 @@ data.forEach((hs,index)=>{
         <td>${hs.kyThi}</td>
         <td>${hs.diem}</td>
         <td>${hs.roiTab}</td>
+        <td>${hs.thoiGian}</td>
     </tr>
     `;
 

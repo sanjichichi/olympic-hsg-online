@@ -68,6 +68,10 @@ href="style.css">
 <strong>Xếp loại:</strong>
 <span id="xepLoai"></span>
 </p>
+<p>
+    <strong>Xếp hạng:</strong>
+    <span id="xepHang"></span>
+</p>
 <div class="badge-box">
 
     <div id="huyHieu"></div>
@@ -180,6 +184,7 @@ tyLe + "%";
 document.getElementById("xepLoai")
 .innerHTML =
 xepLoai;
+hienThiXepHang();
 let huyHieu = document.getElementById(
 "huyHieu"
 );
@@ -236,7 +241,7 @@ async function guiKetQua(){
 
     let kyThi =
     localStorage.getItem("kyThi");
-    
+
     console.log(
     "Mã HS:",
     localStorage.getItem("maThiSinh")
@@ -314,7 +319,7 @@ if(kyThi === "Olympic Toán 2026"){
 else if(kyThi === "Olympic Ngữ văn 2026"){
 
     formURL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSeUx_Q0bJ1OKkrSbgKZYLVKKIAykiq1mgAigo1w6aobr0PX4Q/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLSc9mxkAzPAVcTa5dXUsqBNXOk_R5pcB873ek2g7hM54CPlF7g/formResponse";
 
 }
 else if(kyThi === "Olympic Tiếng Anh 2026"){
@@ -326,7 +331,7 @@ else if(kyThi === "Olympic Tiếng Anh 2026"){
 else if(kyThi === "Olympic 2026"){
 
     formURL =
-    "https://docs.google.com/forms/d/e/1FAIpQLSc9mxkAzPAVcTa5dXUsqBNXOk_R5pcB873ek2g7hM54CPlF7g/formResponse";
+    "https://docs.google.com/forms/d/e/1FAIpQLSeUx_Q0bJ1OKkrSbgKZYLVKKIAykiq1mgAigo1w6aobr0PX4Q/formResponse";
 
 }
 
@@ -340,7 +345,11 @@ formURL,
 );
 
     console.log("Đã gửi kết quả lên Google Form");
+    setTimeout(()=>{
 
+    hienThiXepHang();
+
+},5000);
 }
 
 function veTrangChu(){
@@ -352,6 +361,121 @@ function veTrangChu(){
 
 }
 
+function parseTG(tg){
+
+    if(!tg) return 999999;
+
+    const p = tg.split(":");
+
+    if(p.length === 3){
+
+        return Number(p[0])*3600
+             + Number(p[1])*60
+             + Number(p[2]);
+
+    }
+
+    return 999999;
+
+}
+
+async function hienThiXepHang(){
+
+    const maHS =
+    localStorage.getItem("maThiSinh");
+
+    const kyThi =
+    localStorage.getItem("kyThi");
+
+    const csvMap = {
+
+        "Olympic Toán 2026":
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpyBmphKKF3lC2YXtIAU7GZO0R7te1Orvoi8KqmHx-PbMKfl2r8iNwz5Z5PA2iUr5ol9A1-AraIMvi/pub?output=csv",
+
+        "Olympic Ngữ văn 2026":
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vTQi1mhGw-K9xsKeYgqpe-n3XvALt-PcPb-oOkVxHJ2CLhyfy9QlzkgWnNK24zjQCWmO5q_YuMy5Sga/pub?output=csv",
+
+        "Olympic Tiếng Anh 2026":
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vQtvs9nZ-1ab-DR-rekNM37FXv65Xz8va5RX-98kdy6kbCRrIZIaeO5GgPDZDZdklho2Wk2OuJx-yzZ/pub?output=csv",
+
+        "Olympic 2026":
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vT1XU2cW4LBuNHihn58r7svCjjtN06q_1e6BndfbPH6yja2nHhadihWkZIBzr7CSnWO5YLeGxMneJJK/pub?output=csv"
+
+    };
+
+    const response =
+    await fetch(csvMap[kyThi]);
+
+    const text =
+    await response.text();
+
+    const rows =
+    text.trim().split("\n");
+
+    let ds = [];
+
+    rows.slice(1).forEach(row=>{
+
+        const c = row.split(",");
+
+        ds.push({
+
+            maHS: c[1] || "",
+
+            diem: Number(c[5] || 0),
+
+            roiTab: Number(c[9] || 0),
+
+            thoiGian: c[8] || ""
+
+        });
+
+    });
+
+    const ketQua = {};
+
+    ds.forEach(hs=>{
+
+        if(
+            !ketQua[hs.maHS] ||
+            hs.diem > ketQua[hs.maHS].diem
+        ){
+            ketQua[hs.maHS] = hs;
+        }
+
+    });
+
+    ds = Object.values(ketQua);
+
+    ds.sort((a,b)=>{
+
+        if(b.diem !== a.diem){
+
+            return b.diem - a.diem;
+
+        }
+
+        if(a.roiTab !== b.roiTab){
+
+            return a.roiTab - b.roiTab;
+
+        }
+
+        return parseTG(a.thoiGian)
+             - parseTG(b.thoiGian);
+
+    });
+
+    const viTri =
+    ds.findIndex(
+        x => x.maHS === maHS
+    ) + 1;
+
+    document.getElementById("xepHang")
+    .innerHTML =
+    viTri + " / " + ds.length;
+
+}
 </script>
 
 </body>
