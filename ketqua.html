@@ -85,8 +85,6 @@ href="style.css">
 
 <script>
 console.log("Ketqua.html đã chạy");
-const APP_SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzONtyapyK0VX--g0BuaHXAMo4gFpZB6xGsFtH_UTgZutZ0weOcxhijTcJXrEwjtaD9Cw/exec";
 
 document.getElementById("hoTen")
 .innerHTML =
@@ -178,7 +176,7 @@ diem + "/" + tong;
 document.getElementById("tyLe")
 .innerHTML =
 tyLe + "%";
-guiKetQua();
+
 document.getElementById("xepLoai")
 .innerHTML =
 xepLoai;
@@ -222,7 +220,18 @@ else{
     "#e0e0e0";
 
 }
+if(
+!localStorage.getItem("daGuiKetQua")
+){
 
+    guiKetQua();
+
+    localStorage.setItem(
+        "daGuiKetQua",
+        "true"
+    );
+
+}
 async function guiKetQua(){
     console.log(
     "Mã HS:",
@@ -232,54 +241,53 @@ async function guiKetQua(){
     let formData = new FormData();
 
     formData.append(
-    "entry.692679506",
-    localStorage.getItem(
-        "maThiSinh"
-    )
-    );
+"entry.131085548",
+localStorage.getItem("maThiSinh")
+);
 
-    formData.append(
-        "entry.805102074",
-        localStorage.getItem("tenThiSinh")
-    );
-
-    formData.append(
-        "entry.423243862",
-        localStorage.getItem("lopThiSinh")
-    );
-    
-    formData.append(
-    "entry.866051924",
-    localStorage.getItem("ngaySinh")
-    );
- 
-    formData.append(
-        "entry.2016044064",
-        localStorage.getItem("kyThi")
-    );
-
-    formData.append(
-        "entry.1986781729",
-        diem
-    );
-
-    formData.append(
-        "entry.1287135276",
-        tong
-    );
-
-    formData.append(
-        "entry.1019226016",
-        tyLe
-    );
-
-    formData.append(
-        "entry.1223259505",
-        localStorage.getItem("thoiGianHoanThanh")
-    );
 formData.append(
-    "entry.1734543875",
-    localStorage.getItem("soLanRoiTab") || 0
+"entry.766043376",
+localStorage.getItem("tenThiSinh")
+);
+
+formData.append(
+"entry.1278051019",
+localStorage.getItem("lopThiSinh")
+);
+
+formData.append(
+"entry.465767204",
+localStorage.getItem("kyThi")
+);
+
+formData.append(
+"entry.2000020160",
+diem
+);
+
+formData.append(
+"entry.15166885",
+diem
+);
+
+formData.append(
+"entry.1463297757",
+sai
+);
+
+formData.append(
+"entry.972839558",
+localStorage.getItem("thoiGianHoanThanh")
+);
+
+formData.append(
+"entry.1670856791",
+localStorage.getItem("soLanRoiTab") || 0
+);
+
+formData.append(
+"entry.1112656001",
+new Date().toISOString().split("T")[0]
 );
 console.log("Mã HS:", localStorage.getItem("maThiSinh"));
 console.log("Họ tên:", localStorage.getItem("tenThiSinh"));
@@ -292,7 +300,7 @@ console.log("Tỷ lệ:", tyLe);
 console.log("Thời gian:", localStorage.getItem("thoiGianHoanThanh"));
 console.log("Rời tab:", localStorage.getItem("soLanRoiTab"));
     fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSdyjJ_dxE6UO8IFhOml8BNwcOYCyblAFaHQpxJajOMr9c4L1w/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeLmo1qqAHM8awDUh_9qWJ720NZNeYvTGAzemECLWkqRyneEg/formResponse",
         {
             method:"POST",
             mode:"no-cors",
