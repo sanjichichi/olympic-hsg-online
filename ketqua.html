@@ -233,6 +233,10 @@ if(
 
 }
 async function guiKetQua(){
+
+    let kyThi =
+    localStorage.getItem("kyThi");
+    
     console.log(
     "Mã HS:",
     localStorage.getItem("maThiSinh")
@@ -299,14 +303,41 @@ console.log("Tổng:", tong);
 console.log("Tỷ lệ:", tyLe);
 console.log("Thời gian:", localStorage.getItem("thoiGianHoanThanh"));
 console.log("Rời tab:", localStorage.getItem("soLanRoiTab"));
-    fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSeLmo1qqAHM8awDUh_9qWJ720NZNeYvTGAzemECLWkqRyneEg/formResponse",
-        {
-            method:"POST",
-            mode:"no-cors",
-            body:formData
-        }
-    );
+    let formURL = "";
+
+if(kyThi === "Olympic Toán 2026"){
+
+    formURL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSeLmo1qqAHM8awDUh_9qWJ720NZNeYvTGAzemECLWkqRyneEg/formResponse";
+
+}
+else if(kyThi === "Olympic Ngữ văn 2026"){
+
+    formURL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSeUx_Q0bJ1OKkrSbgKZYLVKKIAykiq1mgAigo1w6aobr0PX4Q/formResponse";
+
+}
+else if(kyThi === "Olympic Tiếng Anh 2026"){
+
+    formURL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSfVEe-5XESX7UqXhjkUcnvQBM4dN3LbmZ8xzrpw6Dz1WkqLPA/formResponse";
+
+}
+else if(kyThi === "Olympic 2026"){
+
+    formURL =
+    "https://docs.google.com/forms/d/e/1FAIpQLSc9mxkAzPAVcTa5dXUsqBNXOk_R5pcB873ek2g7hM54CPlF7g/formResponse";
+
+}
+
+fetch(
+formURL,
+{
+    method:"POST",
+    mode:"no-cors",
+    body:formData
+}
+);
 
     console.log("Đã gửi kết quả lên Google Form");
 
