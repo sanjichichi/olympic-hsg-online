@@ -19,20 +19,34 @@
 
     <a href="index.html">Trang chủ</a>
 
-    <a href="hoclieu.html">Kho học liệu</a>
+    <a href="thongbao.html">Thông báo</a>
 
     <a href="xephang.html">Bảng xếp hạng</a>
 
-    <a href="chatbot.html">Chatbot AI</a>
+    <a href="thele.html">Thể lệ</a>
 
-    <a href="login.html"
-       class="login-btn">
+   <a href="#"
+   class="login-btn"
+   id="taiKhoanBtn">
 
-       Đăng nhập
+   Đăng nhập
 
     </a>
 
 </nav>
+
+<div class="welcome-container">
+<div class="side-box">
+
+    <h3>📢 THÔNG BÁO NHANH</h3>
+
+    <p>📌 Khai mạc Olympic HSG năm học 2026-2027</p>
+
+    <p>📌 Mở đăng ký dự thi các môn Olympic</p>
+
+    <p>📌 Công bố kết quả sau mỗi kỳ thi</p>
+
+</div>
 
 <section class="welcome-box">
 
@@ -42,73 +56,72 @@
 
     <p>Trường THCS Hoàng Ngân</p>
 
-    <select id="kyThi">
-
-        <option>
-            Chọn kỳ thi
-        </option>
-
-        <option>
-            Olympic Toán 2026
-        </option>
-
-        <option>
-            Olympic Ngữ văn 2026
-        </option>
-
-        <option>
-            Olympic Tiếng Anh 2026
-        </option>
-
-        <option>
-            Olympic 2026
-    
-        </option>
-
-    </select>
-    <br>
-        <button class="enter-btn"
-        onclick="vaoHeThong()">
-
-    VÀO HỆ THỐNG
-
-</button>
-
-    <section class="stats-section">
-    <div class="stat-card">
-
-        <h3>350</h3>
-
-        <p>Học sinh tham gia</p>
-
-    </div>
-
-    <div class="stat-card">
-
-        <h3>25</h3>
-
-        <p>Giải thưởng</p>
-
-    </div>
-
-    <div class="stat-card">
-
-        <h3>12</h3>
-
-        <p>Giáo viên phụ trách</p>
-
-    </div>
-
-    <div class="stat-card">
-
-        <h3>5</h3>
-
-        <p>Kỳ thi Olympic</p>
-
-    </div>
 </section>
 
+<div class="side-box">
+
+    <h3>📅 SẮP DIỄN RA</h3>
+
+    <p>15/10/2026 - Olympic Toán 6</p>
+
+    <p>16/10/2026 - Olympic Ngữ văn 6</p>
+
+    <p>17/10/2026 - Olympic Tiếng Anh 6</p>
+
+    <p>20/10/2026 - Olympic Sinh học 6</p>
+
+</div>
+
+</div>
+
+<section class="stats-section">
+
+<div class="stat-card">
+    <h3 id="tongThiSinh">0</h3>
+    <p>Học sinh tham gia</p>
+</div>
+
+<div class="stat-card">
+    <h3 id="tongLuotThi">0</h3>
+    <p>Lượt thi</p>
+</div>
+
+<div class="stat-card">
+    <h3 id="tongGiaoVien">8</h3>
+    <p>Giáo viên phụ trách</p>
+</div>
+
+<div class="stat-card">
+    <h3 id="tongKyThi">4</h3>
+    <p>Kỳ thi Olympic</p>
+</div>
+
 </section>
+
+<div class="dashboard-grid">
+
+<section class="top10-section">
+
+    <h2>🏆 TOP 10 HỌC SINH XUẤT SẮC</h2>
+
+    <table id="top10Table">
+
+        <thead>
+            <tr>
+                <th>Hạng</th>
+                <th>Mã HS</th>
+                <th>Họ tên</th>
+                <th>Lớp</th>
+                <th>Điểm cao nhất</th>
+            </tr>
+        </thead>
+
+        <tbody id="top10Body"></tbody>
+
+    </table>
+
+</section>
+
 <section class="news-section">
 
     <h2>📢 THÔNG BÁO MỚI NHẤT</h2>
@@ -133,6 +146,7 @@
     </div>
 
 </section>
+
 <section class="schedule-section">
 
     <h2>📅 LỊCH THI SẮP DIỄN RA</h2>
@@ -140,38 +154,27 @@
     <div class="schedule-grid">
 
         <div class="schedule-card">
-
             <h3>15/10/2026</h3>
-
             <p>Olympic Toán 6</p>
-
             <span>08:00 - 08:30</span>
-
         </div>
 
         <div class="schedule-card">
-
             <h3>16/10/2026</h3>
-
             <p>Olympic Ngữ văn 6</p>
-
             <span>08:00 - 08:30</span>
-
         </div>
 
         <div class="schedule-card">
-
             <h3>17/10/2026</h3>
-
             <p>Olympic Tiếng Anh 6</p>
-
             <span>08:00 - 08:30</span>
-
         </div>
 
     </div>
 
 </section>
+
 <section class="achievement-section">
 
     <h2>🏅 BẢNG VÀNG THÀNH TÍCH</h2>
@@ -183,27 +186,18 @@
         <div class="achievement-grid">
 
             <div class="achievement-card">
-
                 <h1>5</h1>
-
                 <p>🥇 Giải Nhất</p>
-
             </div>
 
             <div class="achievement-card">
-
                 <h1>6</h1>
-
                 <p>🥈 Giải Nhì</p>
-
             </div>
 
             <div class="achievement-card">
-
                 <h1>9</h1>
-
                 <p>🥉 Giải Ba</p>
-
             </div>
 
         </div>
@@ -213,6 +207,8 @@
     </div>
 
 </section>
+</div>
+
 <section class="students-section">
 
     <h2>🏆 GƯƠNG HỌC SINH TIÊU BIỂU</h2>
@@ -340,6 +336,162 @@ function vaoHeThong(){
     "Trangchu.html";
 }
 
+const CSV_URLS = [
+
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTpyBmphKKF3lC2YXtIAU7GZO0R7te1Orvoi8KqmHx-PbMKfl2r8iNwz5Z5PA2iUr5ol9A1-AraIMvi/pub?output=csv",
+
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTQi1mhGw-K9xsKeYgqpe-n3XvALt-PcPb-oOkVxHJ2CLhyfy9QlzkgWnNK24zjQCWmO5q_YuMy5Sga/pub?output=csv",
+
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vQtvs9nZ-1ab-DR-rekNM37FXv65Xz8va5RX-98kdy6kbCRrIZIaeO5GgPDZDZdklho2Wk2OuJx-yzZ/pub?output=csv",
+
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vT1XU2cW4LBuNHihn58r7svCjjtN06q_1e6BndfbPH6yja2nHhadihWkZIBzr7CSnWO5YLeGxMneJJK/pub?output=csv"
+
+];
+
+async function thongKe(){
+
+    let tatCa = [];
+
+    for(const url of CSV_URLS){
+
+        const response = await fetch(url);
+
+        const text = await response.text();
+
+        const rows = text.trim().split("\n");
+
+        rows.slice(1).forEach(row=>{
+
+            const c = row.split(",");
+
+            tatCa.push({
+
+             maHS: c[1] || "",
+
+             hoTen: c[2] || "",
+
+            lop: c[3] || "",
+
+            kyThi: c[4] || "",
+
+            diem: Number(c[5] || 0),
+
+            roiTab: Number(c[9] || 0),
+
+            thoiGian: c[8] || ""
+
+            });
+
+        });
+
+    }
+
+    document.getElementById("tongLuotThi")
+    .innerText = tatCa.length;
+
+    const hocSinh =
+    new Set(
+        tatCa.map(x=>x.maHS)
+    );
+
+    document.getElementById("tongThiSinh")
+    .innerText = hocSinh.size;
+    taoTop10(tatCa);
+}
+
+thongKe();
+function taoTop10(tatCa){
+
+const hocSinh = {};
+
+tatCa.forEach(hs=>{
+
+    if(
+        !hocSinh[hs.maHS] ||
+        hs.diem > hocSinh[hs.maHS].diem
+    ){
+
+        hocSinh[hs.maHS] = hs;
+
+    }
+
+});
+
+const top10 =
+Object.values(hocSinh)
+.sort((a,b)=>{
+
+    if(b.diem !== a.diem){
+
+        return b.diem - a.diem;
+
+    }
+
+    if(a.roiTab !== b.roiTab){
+
+        return a.roiTab - b.roiTab;
+
+    }
+
+    return 0;
+
+})
+.slice(0,10);
+
+const body =
+document.getElementById("top10Body");
+
+body.innerHTML = "";
+
+top10.forEach((hs,index)=>{
+
+    body.innerHTML += `
+    <tr>
+        <td>${index+1}</td>
+        <td>${hs.maHS}</td>
+        <td>${hs.hoTen}</td>
+        <td>${hs.lop}</td>
+        <td>${hs.diem}</td>
+    </tr>
+    `;
+
+});
+}
 </script>
+<script>
+function kiemTraDangNhap(){
+
+    const dangNhap =
+    localStorage.getItem("dangNhap");
+
+    const btn =
+    document.getElementById("taiKhoanBtn");
+
+    if(!btn) return;
+
+    if(dangNhap === "true"){
+
+        btn.innerHTML =
+        "Vào trang cá nhân";
+
+        btn.href =
+        "Trangchu.html";
+
+    }else{
+
+        btn.innerHTML =
+        "Đăng nhập";
+
+        btn.href =
+        "login.html";
+
+    }
+
+}
+
+kiemTraDangNhap();
+
+</script>
+
 </body>
 </html>

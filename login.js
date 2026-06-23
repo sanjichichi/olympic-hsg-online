@@ -5,6 +5,22 @@ const danhSachHocSinh = [
     hoten:"Bàng Tiến Hào",
     ngaysinh:"19/11/1991",
     lop:"9A",
+    truong:"THCS Hoàng Ngân"
+},
+{
+    mahs:"HS002",
+    matkhau:"654321",
+    hoten:"Dương Hồng Tuyến",
+    ngaysinh:"12/08/1982",
+    lop:"9A",
+    truong:"THCS Hoàng Ngân"
+},
+{
+    mahs:"HS003",
+    matkhau:"132436",
+    hoten:"Lý Thị Linh",
+    ngaysinh:"25/08/1990",
+    lop:"9A",
     truong:"THCS Hoàng Ngân",
 }
 ];
@@ -51,9 +67,14 @@ function dangNhap(){
     );
 
     localStorage.setItem(
-        "tenThiSinh",
-        hocSinh.hoten
-    );
+    "tenThiSinh",
+    hocSinh.hoten
+);
+
+localStorage.setItem(
+    "hoTen",
+    hocSinh.hoten
+);
     localStorage.setItem(
     "ngaySinh",
     hocSinh.ngaysinh
@@ -67,6 +88,10 @@ function dangNhap(){
         hocSinh.truong
     );
 
-    window.location.href =
-"xacnhan.html";
+    localStorage.setItem(
+    "dangNhap",
+    "true"
+);
+window.location.href =
+"Trangchu.html";
 }

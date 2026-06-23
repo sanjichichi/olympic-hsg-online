@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympic Học sinh Giỏi</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <img src="anhnen/banner.png"
+         alt="Banner CLB"
+         class="banner-image">
+</header>
+<nav class="menu">
+
+    <a href="index.html">Trang chủ</a>
+
+    <a href="hoclieu.html">Kho học liệu</a>
+
+    <a href="xephang.html">Bảng xếp hạng</a>
+
+    <a href="tracuu.html">Tra cứu kết quả</a>
+
+    <a href="chatbot.html">Chatbot AI</a>
+
+</nav>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tra cứu kết quả</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fa;
+    padding:20px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+h1{
+    text-align:center;
+    color:#003366;
+}
+
+select,
+input,
+button{
+
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+
+}
+
+button{
+
+    background:#003366;
+    color:white;
+    border:none;
+    cursor:pointer;
+
+}
+
+#ketQua{
+
+    margin-top:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔍 TRA CỨU KẾT QUẢ</h1>
+
+<select id="kyThi">
+
+<option>Olympic Toán 2026</option>
+<option>Olympic Ngữ văn 2026</option>
+<option>Olympic Tiếng Anh 2026</option>
+<option>Olympic 2026</option>
+
+</select>
+
+<input
+type="text"
+id="maHS"
+placeholder="Nhập mã học sinh">
+
+<button onclick="traCuu()">
+
+Tra cứu
+
+</button>
+
+<div id="ketQua"></div>
+
+</div>
+
+<script>
+
+const csvMap = {
+
+"Olympic Toán 2026":
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTpyBmphKKF3lC2YXtIAU7GZO0R7te1Orvoi8KqmHx-PbMKfl2r8iNwz5Z5PA2iUr5ol9A1-AraIMvi/pub?output=csv",
+
+"Olympic Ngữ văn 2026":
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTQi1mhGw-K9xsKeYgqpe-n3XvALt-PcPb-oOkVxHJ2CLhyfy9QlzkgWnNK24zjQCWmO5q_YuMy5Sga/pub?output=csv",
+
+"Olympic Tiếng Anh 2026":
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vQtvs9nZ-1ab-DR-rekNM37FXv65Xz8va5RX-98kdy6kbCRrIZIaeO5GgPDZDZdklho2Wk2OuJx-yzZ/pub?output=csv",
+
+"Olympic 2026":
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vT1XU2cW4LBuNHihn58r7svCjjtN06q_1e6BndfbPH6yja2nHhadihWkZIBzr7CSnWO5YLeGxMneJJK/pub?output=csv"
+
+};
+
+function parseTG(tg){
+
+    if(!tg) return 999999;
+
+    const p = tg.split(":");
+
+    if(p.length === 3){
+
+        return Number(p[0])*3600 +
+               Number(p[1])*60 +
+               Number(p[2]);
+
+    }
+
+    return 999999;
+
+}
+
+async function traCuu(){
+
+    const kyThi =
+    document.getElementById("kyThi").value;
+
+    const maHS =
+    document.getElementById("maHS")
+    .value
+    .trim()
+    .toUpperCase();
+
+    const response =
+    await fetch(csvMap[kyThi]);
+
+    const text =
+    await response.text();
+
+    const rows =
+    text.trim().split("\n");
+
+    let ds = [];
+
+    rows.slice(1).forEach(row=>{
+
+        const c = row.split(",");
+
+        ds.push({
+
+            maHS:c[1] || "",
+            hoTen:c[2] || "",
+            lop:c[3] || "",
+            kyThi:c[4] || "",
+            diem:Number(c[5] || 0),
+            dung:Number(c[6] || 0),
+            sai:Number(c[7] || 0),
+            thoiGian:c[8] || "",
+            roiTab:Number(c[9] || 0),
+            ngayThi:c[10] || ""
+
+        });
+
+    });
+
+    const hocSinh =
+    ds.filter(
+    x => x.maHS.toUpperCase() === maHS
+    );
+
+    if(hocSinh.length === 0){
+
+        document.getElementById("ketQua")
+        .innerHTML =
+        "<h3>❌ Không tìm thấy kết quả</h3>";
+
+        return;
+
+    }
+
+    hocSinh.sort((a,b)=>{
+
+        if(b.diem !== a.diem){
+
+            return b.diem - a.diem;
+
+        }
+
+        if(a.roiTab !== b.roiTab){
+
+            return a.roiTab - b.roiTab;
+
+        }
+
+        return parseTG(a.thoiGian)
+             - parseTG(b.thoiGian);
+
+    });
+
+    const ketQua =
+    hocSinh[0];
+
+    ds.sort((a,b)=>{
+
+        if(b.diem !== a.diem){
+
+            return b.diem - a.diem;
+
+        }
+
+        if(a.roiTab !== b.roiTab){
+
+            return a.roiTab - b.roiTab;
+
+        }
+
+        return parseTG(a.thoiGian)
+             - parseTG(b.thoiGian);
+
+    });
+
+    const hang =
+ds.findIndex(
+x =>
+x.maHS === ketQua.maHS &&
+x.diem === ketQua.diem
+) + 1;
+
+console.log(ketQua);
+
+document.getElementById("ketQua")
+.innerHTML = `
+
+<h3>📋 KẾT QUẢ TRA CỨU</h3>
+
+<p><b>Họ tên:</b> ${ketQua.hoTen}</p>
+
+<p><b>Lớp:</b> ${ketQua.lop}</p>
+
+<p><b>Kỳ thi:</b> ${ketQua.kyThi}</p>
+
+<p><b>Điểm:</b> ${ketQua.diem}</p>
+
+<p><b>Số câu đúng:</b> ${ketQua.dung}</p>
+
+<p><b>Số câu sai:</b> ${ketQua.sai}</p>
+
+<p><b>Thời gian hoàn thành:</b> ${ketQua.thoiGian}</p>
+
+<p><b>Số lần rời tab:</b> ${ketQua.roiTab}</p>
+
+<p><b>Ngày thi:</b> ${ketQua.ngayThi}</p>
+
+<p><b>🏆 Xếp hạng:</b> ${hang}/${ds.length}</p>
+
+<br><br>
+
+<button onclick="
+localStorage.setItem('cnHoTen','${ketQua.hoTen}');
+localStorage.setItem('cnLop','${ketQua.lop}');
+localStorage.setItem('cnKyThi','${ketQua.kyThi}');
+localStorage.setItem('cnDiem','${ketQua.diem}');
+localStorage.setItem('cnXepHang','${hang}/${ds.length}');
+window.open('chungnhan.html','_blank');
+">
+
+📜 Xem giấy chứng nhận
+
+</button>
+`;
+
+}
+</script>
+
+</body>
+
+</html>

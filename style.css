@@ -1,7 +1,22 @@
 body{
+
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#f4f6f9;
+
+    font-family:'Segoe UI',sans-serif;
+
+    background:
+
+    linear-gradient(
+    rgba(255,255,255,.92),
+    rgba(255,255,255,.92)
+    ),
+
+    url("anhnen/bg-school.png");
+
+    background-size:cover;
+
+    background-attachment:fixed;
+
 }
 
 header{
@@ -78,11 +93,6 @@ button{
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-body{
-    margin:0;
-    background:#f4f6f9;
-}
-
 header{
     margin:0;
     padding:0;
@@ -105,9 +115,9 @@ nav{
 
     flex-wrap:wrap;
 
-    min-height:70px;
+    min-height:10px;
 
-    box-shadow:0 3px 10px rgba(0,0,0,0.2);
+    box-shadow:0 2px 6px rgba(0,0,0,0.2);
 }
 
 .menu a{
@@ -116,11 +126,11 @@ nav{
 
     text-decoration:none;
 
-    font-size:30px;
+    font-size:20px;
 
     font-weight:600;
 
-    padding:20px 25px;
+    padding:18px 22px;
 
     transition:0.3s;
 }
@@ -129,7 +139,7 @@ nav{
 
     background:#f2f4f6;
 
-    color:#ffd700;
+    color:#ebe5c6;
 }
 
 .login-btn{
@@ -520,7 +530,7 @@ background:#b02a37;
 
 .welcome-box{
 
-    max-width:700px;
+    max-width:800px;
 
     margin:40px auto;
 
@@ -569,6 +579,32 @@ background:#b02a37;
     border-radius:10px;
 
     border:1px solid #ccc;
+}
+.welcome-container{
+    max-width:1400px;
+    margin:30px auto;
+    display:flex;
+    gap:20px;
+}
+
+.welcome-box{
+    flex:3;
+}
+
+.side-box{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.dashboard-grid{
+    max-width:1400px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
 .enter-btn{
@@ -1224,4 +1260,514 @@ background:#b02a37;
     padding:20px;
 
     border-radius:15px;
+}
+.top10-section{
+
+margin-top:40px;
+
+}
+
+.top10-section h2{
+
+text-align:center;
+
+color:#003366;
+
+margin-bottom:20px;
+
+}
+
+#top10Table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+}
+
+#top10Table th,
+#top10Table td{
+
+border:1px solid #ddd;
+
+padding:10px;
+
+text-align:center;
+
+}
+
+#top10Table th{
+
+background:#003366;
+
+color:white;
+
+}
+.chuKy{
+
+    width:180px;
+
+    margin-bottom:10px;
+
+}
+.huyHieu{
+
+    width:150px;
+
+    margin:20px 0;
+
+}
+/* NÚT XỔ TRANG CHỦ*/
+.user-menu{
+    position:relative;
+    display:inline-block;
+}
+
+.user-dropdown{
+    display:none;
+    position:absolute;
+    right:0;
+    top:40px;
+    background:#fff;
+    min-width:220px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+    z-index:999;
+}
+
+.user-dropdown a{
+    display:block;
+    padding:12px 15px;
+    text-decoration:none;
+    color:#333;
+}
+
+.user-dropdown a:hover{
+    background:#f2f2f2;
+}
+/* TRANG HỒ SƠ*/
+.profile-card{
+
+    max-width:600px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+
+}
+
+.profile-card p{
+
+    margin:15px 0;
+
+    font-size:18px;
+
+}
+/*NUT XO TRANG HO SO*/
+.user-menu{
+    position:relative;
+    display:inline-block;
+}
+
+.user-dropdown{
+    display:none;
+    position:absolute;
+    right:0;
+    top:40px;
+    background:#fff;
+    min-width:220px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+    z-index:999;
+}
+
+.user-dropdown a{
+    display:block;
+    padding:12px 15px;
+    text-decoration:none;
+    color:#333;
+}
+
+.user-dropdown a:hover{
+    background:#f2f2f2;
+}
+/* TRANG KẾT QUẢ*/
+#bangKetQua{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+}
+
+#bangKetQua th,
+#bangKetQua td{
+
+border:1px solid #ddd;
+
+padding:12px;
+
+text-align:center;
+
+}
+
+#bangKetQua th{
+
+background:#0056b3;
+
+color:white;
+
+}
+/* TRANG CHỨNG NHẬN*/
+body{
+
+    margin:0;
+
+    background:#f0f0f0;
+
+}
+
+.certificate{
+
+    position:relative;
+
+    width:1492px;
+
+    height:1054px;
+
+    margin:auto;
+
+}
+
+.bg{
+
+    width:1492px;
+
+    height:1054px;
+
+}
+
+.logo{
+
+    position:absolute;
+
+    top: 50px;
+
+    left:646px;
+
+    width:190px;
+
+}
+
+.truong{
+
+    position:absolute;
+
+    top:250px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:#123c8f;
+
+}
+
+.tieude{
+
+    position:absolute;
+
+    top:300px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:72px;
+
+    font-weight:bold;
+
+    color:#b30000;
+
+}
+
+.chungNhan{
+
+    position:absolute;
+
+    top:380px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:40px;
+
+    color:#123c8f;
+
+    font-style:italic;
+
+}
+
+.hoTen{
+
+    position:absolute;
+
+    top:430px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:60px;
+
+    font-weight:bold;
+
+    color:#c00000;
+
+}
+.thanhTich{
+
+    position:absolute;
+
+    top:495px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:35px;
+
+    color:#123c8f;
+
+    font-style:bold;
+
+}
+.kyThi{
+
+    position:absolute;
+
+    top:530px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:56px;
+
+    font-weight:bold;
+
+    color:#123c8f;
+
+}
+
+.huyHieu{
+
+    position:absolute;
+
+    top: 550px;
+
+    left:620px;
+
+    width:300px;
+
+    font-weight:bold;
+
+}
+
+.cotTrai{
+
+    position:absolute;
+
+    top:570px;
+
+    left:390px;
+
+    font-size:30px;
+
+    line-height:1;
+
+     font-weight:bold;
+
+     color:#de5414;
+
+}
+
+.cotPhai{
+
+    position:absolute;
+
+    top:570px;
+
+    right:150px;
+
+    font-size:30px;
+
+    line-height:1;
+
+    font-weight:bold;
+
+    color:#de5414;
+
+}
+
+.banToChuc{
+
+    position:absolute;
+
+    top:200px;
+
+    right:35px;
+
+    width:400px;
+
+    text-align:center;
+
+}
+.chucDanh{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#123c8f;
+
+    white-space:nowrap;
+
+    line-height:1.5;
+
+}
+.nguoiKy{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#123c8f;
+
+    white-space:nowrap;
+
+    line-height:1.5;
+
+}
+.chuKy{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#123c8f;
+
+    white-space:nowrap;
+
+    line-height:1.5;
+
+}
+/* Mã QR */
+.qrBox{
+
+    position:absolute;
+
+    top:50px;
+
+    right:800px;
+
+    text-align:center;
+
+}
+
+.qrCode{
+
+    width:100px;
+
+    height:100px;
+
+}
+
+.qrText{
+
+    margin-top:10px;
+
+    font-size:18px;
+
+    color:#123c8f;
+
+}
+.dashboard-grid{
+
+    max-width:1200px;
+
+    margin:30px auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+.top10-section,
+.news-section,
+.schedule-section,
+.achievement-section{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+}
+.banner-image{
+
+    width:100%;
+
+    height:600px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+.stat-card,
+.student-card,
+.teacher-card,
+.schedule-card,
+.achievement-card,
+.side-box{
+
+    transition:.3s;
+
+}
+
+.stat-card:hover,
+.student-card:hover,
+.teacher-card:hover,
+.schedule-card:hover,
+.achievement-card:hover,
+.side-box:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 10px 25px
+    rgba(0,0,0,.18);
+
 }

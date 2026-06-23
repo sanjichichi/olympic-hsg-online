@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Hồ sơ cá nhân</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<nav class="menu">
+
+<a href="index.html">Trang chủ</a>
+
+    <a href="thongbao.html">Thông báo</a>
+
+    <a href="xephang.html">Bảng xếp hạng</a>
+
+    <a href="thele.html">Thể lệ</a>
+
+<div class="user-menu">
+
+<a href="#"
+class="login-btn"
+id="taiKhoanBtn">
+</a>
+
+<div
+id="userDropdown"
+class="user-dropdown">
+
+<a href="hoso.html">
+Hồ sơ cá nhân
+</a>
+
+<a href="Trangchu.html">
+🏆 Kỳ thi của tôi
+</a>
+
+<a href="ketqua.html">
+📊 Kết quả thi
+</a>
+
+<a href="chungnhan.html">
+🏅 Chứng nhận
+</a>
+
+<a href="#"
+onclick="dangXuat()">
+
+🚪 Đăng xuất
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<div class="welcome-box">
+
+<h2>HỒ SƠ CÁ NHÂN</h2>
+
+<div class="profile-card">
+
+<p>
+<strong>Mã học sinh:</strong>
+<span id="maHS"></span>
+</p>
+
+<p>
+<strong>Họ tên:</strong>
+<span id="hoTen"></span>
+</p>
+
+<p>
+<strong>Ngày sinh:</strong>
+<span id="ngaySinh"></span>
+</p>
+
+<p>
+<strong>Lớp:</strong>
+<span id="lop"></span>
+</p>
+
+<p>
+<strong>Trường:</strong>
+<span id="truong"></span>
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+if(
+localStorage.getItem("dangNhap")
+!== "true"
+){
+
+window.location.href =
+"login.html";
+
+}
+
+document.getElementById(
+"maHS"
+).innerText =
+localStorage.getItem(
+"maThiSinh"
+);
+
+document.getElementById(
+"hoTen"
+).innerText =
+localStorage.getItem(
+"hoTen"
+);
+
+document.getElementById(
+"ngaySinh"
+).innerText =
+localStorage.getItem(
+"ngaySinh"
+);
+
+document.getElementById(
+"lop"
+).innerText =
+localStorage.getItem(
+"lopThiSinh"
+);
+
+document.getElementById(
+"truong"
+).innerText =
+localStorage.getItem(
+"truong"
+);
+
+document.getElementById(
+"taiKhoanBtn"
+).innerText =
+localStorage.getItem(
+"hoTen"
+);
+const btn =
+document.getElementById(
+"taiKhoanBtn"
+);
+
+if(btn){
+
+    btn.innerHTML =
+    localStorage.getItem("hoTen")
+    + " ▼";
+
+    btn.addEventListener(
+    "click",
+    function(e){
+
+        e.preventDefault();
+
+        const menu =
+        document.getElementById(
+        "userDropdown"
+        );
+
+        menu.style.display =
+        menu.style.display ===
+        "block"
+        ? "none"
+        : "block";
+
+    });
+
+}
+function dangXuat(){
+
+    if(confirm(
+    "Bạn muốn đăng xuất?"
+    )){
+
+        localStorage.clear();
+
+        window.location.href =
+        "index.html";
+
+    }
+
+}
+</script>
+
+</body>
+
+</html>

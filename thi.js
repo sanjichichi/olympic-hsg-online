@@ -154,13 +154,12 @@ if(!localStorage.getItem("maThiSinh")){
     window.location.href =
     "login.html";
 }
-if(
-    localStorage.getItem(
-        "thoiGianConLai"
-    ) === null
-){
+let time = 1800
+if(localStorage.getItem("thoiGianConLai")){
 
-    time = 1800;
+    time = parseInt(
+        localStorage.getItem("thoiGianConLai")
+    );
 
 }
 
@@ -272,16 +271,15 @@ localStorage.setItem(
     "soLanRoiTab",
     soLanRoiTab
 );
-window.location.href =
-"ketqua.html";
-
-    document
+document
     .querySelectorAll("input")
     .forEach(function(input){
 
         input.disabled = true;
 
     });
+window.location.href =
+"ketqua.html";
 
     document
     .querySelector(".submit-btn")
@@ -313,7 +311,9 @@ localStorage.getItem("lopThiSinh");
 
 document.getElementById("ngaySinh").innerHTML =
 localStorage.getItem("ngaySinh");
-cauHoi.sort(() => Math.random() - 0.5);
+cauHoi = cauHoi
+.sort(() => Math.random() - 0.5)
+.slice(0,30);
 hienThiCauHoi();
 
 taoThanhDieuHuong();
